@@ -16,6 +16,8 @@ ruoyi:
     captchaType: math
 
 
+
+
 # 数据源配置
 spring:
     datasource:
