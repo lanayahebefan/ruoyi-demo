@@ -9,7 +9,7 @@ ruoyi:
     # 实例演示开关
     demoEnabled: true
     # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath，存储桶 ruoyi/uploadPath,nginx配置 /ruoyi/upload）
-    profile: E:/ruoyi/uploadPath
+    profile: /Users/zhangqing/ruoyi/uploadPath
     # 获取ip地址开关
     addressEnabled: false
     # 验证码类型 math 数组计算 char 字符验证
@@ -24,9 +24,9 @@ spring:
         druid:
             # 主库数据源
             master:
-                url: jdbc:mysql://localhost:3306/ruoyi-vue-activiti7?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+                url: jdbc:mysql://123.57.42.135:3306/ry-vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
                 username: root
-                password: root
+                password: NianHua@123#
             # 从库数据源
             slave:
                 # 从数据源开关/默认关闭
@@ -76,11 +76,13 @@ spring:
         # redis 配置
     redis:
         # 地址
-        host: localhost
+        host: 123.57.42.135
         # 端口，默认为6379
         port: 6379
         # 密码
-        password:
+        password: 123456
+
+
         # 连接超时时间
         timeout: 10s
         lettuce:

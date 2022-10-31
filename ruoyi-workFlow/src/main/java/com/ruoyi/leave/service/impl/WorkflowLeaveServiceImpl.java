@@ -1,7 +1,12 @@
 package com.ruoyi.leave.service.impl;
 
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -15,11 +20,13 @@ import org.activiti.api.process.model.builders.ProcessPayloadBuilder;
 import org.activiti.api.process.runtime.ProcessRuntime;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.leave.mapper.WorkflowLeaveMapper;
 import com.ruoyi.leave.domain.WorkflowLeave;
 import com.ruoyi.leave.service.IWorkflowLeaveService;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 请假Service业务层处理
@@ -152,4 +159,5 @@ public class WorkflowLeaveServiceImpl implements IWorkflowLeaveService {
 
         return workflowLeaveMapper.selectWorkflowLeaveByInstanceId(instanceId);
     }
+
 }

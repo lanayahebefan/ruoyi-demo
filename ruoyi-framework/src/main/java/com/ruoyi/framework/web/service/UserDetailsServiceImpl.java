@@ -58,7 +58,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Set<String> postCode = sysPostService.selectPostCodeByUserId(user.getUserId());
         postCode = postCode.parallelStream().map( s ->  "GROUP_" + s).collect(Collectors.toSet());
         postCode.add("ROLE_ACTIVITI_USER");
-        List<SimpleGrantedAuthority> collect = postCode.stream().map(s -> new SimpleGrantedAuthority(s)).collect(Collectors.toList());
+        List<SimpleGrantedAuthority> collect = postCode.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
         return new LoginUser(user, permissionService.getMenuPermission(user), collect);
     }
 }

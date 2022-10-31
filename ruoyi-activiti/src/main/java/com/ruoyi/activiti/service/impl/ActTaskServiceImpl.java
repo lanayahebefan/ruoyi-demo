@@ -49,7 +49,7 @@ public class ActTaskServiceImpl implements IActTaskService {
         int totalItems = pageTasks.getTotalItems();
         list.setTotal(totalItems);
         if (totalItems != 0) {
-            Set<String> processInstanceIdIds = tasks.parallelStream().map(t -> t.getProcessInstanceId()).collect(Collectors.toSet());
+            Set<String> processInstanceIdIds = tasks.parallelStream().map(Task::getProcessInstanceId).collect(Collectors.toSet());
             List<ProcessInstance> processInstanceList = runtimeService.createProcessInstanceQuery().processInstanceIds(processInstanceIdIds).list();
             List<ActTaskDTO> actTaskDTOS = tasks.stream()
                     .map(t -> new ActTaskDTO(t, processInstanceList.parallelStream().filter(pi -> t.getProcessInstanceId().equals(pi.getId())).findAny().get()))
